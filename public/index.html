@@ -1,0 +1,54 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<title>Project List App</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+
+<div class="container" ng-controller="AppCtrl">
+<h1>Project List App</h1>
+<table class="table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Details</th>
+<th>Action</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><input class="form-control" ng-model="project.name"></td>
+<td><input class="form-control" ng-model="project.email"></td>
+<td><input class="form-control" ng-model="project.details"></td>
+<td><button class="btn btn-primary" ng-click="addProject()">Add Project</button></td>
+<td><button class="btn btn-info" ng-click="update()">Update</button></td>
+<td><button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+</tr>
+
+<tr ng-repeat="project in projectlist">
+
+<td>{{project.name}}</td>
+<td>{{project.email}}</td>
+<td>{{project.details}}</td>
+<td><button class="btn btn-danger" ng-click="remove(project._id)">Remove</button></td>
+<td><button class="btn btn-warning" ng-click="edit(project._id)">Edit</button></td>
+<td><button class="btn btn-primary" ng-click="tasks(project._id)">Show Tasks</button></td>
+</tr>
+
+</tbody>
+</table>
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script src="controllers/controller.js"></script>
+</body>
+</html>

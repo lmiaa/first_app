@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<title>Task List</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+</head>
+<body>
+
+<div class="container" ng-controller="AppCtrltask">
+<h1>Project List App</h1>
+<table class="table">
+<thead>
+<tr>
+<th>TaskName </th>
+<th>DeveloperName</th>
+<th>Details</th>
+<th>Action</th>
+<th>&nbsp;</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><input class="form-control" ng-model="task.name"></td>
+<td><input class="form-control" ng-model="task.DeveloperName"></td>
+<td><input class="form-control" ng-model="task.details"></td>
+<td><button class="btn btn-primary" ng-click="addtask()">Add Task</button></td>
+
+</tr>
+
+<tr ng-repeat="task in tasklist">
+
+<td>{{task.name}}</td>
+<td>{{task.DeveloperName}}</td>
+<td>{{task.details}}</td>
+<td><button class="btn btn-danger" ng-click="removetask(task._id)">Remove</button></td>
+</tr>
+</tbody>
+</table>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script src="controllers/controller.js"></script>
+</body>
+</html>
